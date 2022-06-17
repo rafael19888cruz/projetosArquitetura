@@ -1,30 +1,25 @@
-package com.calc.atividade.apicalculadora;
+package com.calc.atividade.apicalculadora.appController;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.calc.atividade.apicalculadora.Equacoes.Dividir;
 import com.calc.atividade.apicalculadora.Equacoes.Soma;
 import com.calc.atividade.apicalculadora.model.Resultado;
 
 
-@RestController("/app")
-public class App {
+@RestController
+public class AppSoma {
    
 @Autowired
-private Soma soma;
-private Dividir divi;
+public Soma soma;
+
 
 @GetMapping("/soma")
 public Resultado somando(@RequestParam int a, @RequestParam int b){
     return soma.somando(a,b);
     }
 
-@GetMapping("/dividir")
-public Resultado dividindo(@RequestParam int a, @RequestParam int b){
-    return divi.dividindo(a,b);
-}
+
 }
